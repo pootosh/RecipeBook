@@ -1,12 +1,14 @@
 
 <div class="" style="height:100vh">
-  <app-header></app-header>
+  <app-header (featureSelected)="onNavigate($event)"></app-header>
 
 <div class="container">
+
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-shopping-list *ngIf="pageShow==='shoppingList'; else recipePage"  ></app-shopping-list>
+      <ng-template #recipePage><app-recipes></app-recipes></ng-template>
+
     </div>
   </div>
 </div>
